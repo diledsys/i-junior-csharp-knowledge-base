@@ -33,6 +33,14 @@ namespace Variables
                 $"\n\nReference variablesn\n--------------------\n" +
                 $"firstName: {firstName}\nlastName: {lastName}");
 
+            int a = 10;
+
+            int b = 38;
+
+            double c = (31 - 5 * a) / Convert.ToDouble( b);
+
+            Console.WriteLine(c);
+            
 
 
         }
