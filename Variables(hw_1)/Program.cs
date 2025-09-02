@@ -1,5 +1,5 @@
 ﻿
-namespace Exit_Control
+namespace Variables
 {
     internal class Program
     {
