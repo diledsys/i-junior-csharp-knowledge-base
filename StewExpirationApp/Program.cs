@@ -52,8 +52,8 @@ internal class StewApplication
         var yearBefore = 2023;
         var yearaFter = 2025;
 
-        var shelfLifeYears = 3;
-        var expiryDateYears = 1;
+        var shelfLifeYears = 1;
+        var expiryDateYears = 3;
 
         var cans = new List<StewCan>();
 
@@ -78,7 +78,6 @@ internal class StewApplication
 
     private int GetRandomYear(int fromYear, int toYearInclusive)
     {
-        // Random.Next верхнюю границу исключает, поэтому +1
         return _random.Next(fromYear, toYearInclusive + 1);
     }
 
@@ -113,7 +112,7 @@ internal enum StewName
 {
     Burenka,
     Korovka,
-    Svininka
+    Svinina
 }
 
 internal class StewCan
