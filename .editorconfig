@@ -1,0 +1,32 @@
+# Обязательно указываем, что это корневой файл
+root = true
+
+# Настройки по умолчанию для всех файлов
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# C#-стиль
+[*.cs]
+
+# ОТСТУПЫ
+csharp_indent_case_contents = true
+csharp_indent_switch_labels = true
+csharp_indent_labels = one_less_than_current
+csharp_indent_block_contents = true
+
+# ПУСТЫЕ СТРОКИ
+# Не более одной пустой строки подряд
+dotnet_diagnostic.SA1507.severity = warning             # Удалить пустые строки перед закрывающей скобкой
+dotnet_diagnostic.SA1508.severity = warning             # Удалить пустую строку внутри блока кода
+dotnet_diagnostic.SA1505.severity = warning             # Требует пустую строку перед блоками (например, for/if)
+dotnet_diagnostic.SA1513.severity = warning             # Пустая строка после открывающей скобки (избыточна)
+dotnet_diagnostic.SA1516.severity = warning             # Требует пустую строку между методами
+
+# ПРОЧИЕ СТИЛЕВЫЕ
+dotnet_sort_system_directives_first = true
+csharp_new_line_before_open_brace = all
+csharp_preserve_single_line_blocks = false

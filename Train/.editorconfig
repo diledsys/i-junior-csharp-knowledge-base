@@ -1,0 +1,83 @@
+# Указывает, что это корневой конфиг и другие .editorconfig не учитываются выше по дереву
+root = true
+
+[*.cs]
+
+####################
+# === ОТСТУПЫ ===  #
+####################
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+charset = utf-8
+
+##########################
+# === ФОРМАТИРОВАНИЕ === #
+##########################
+
+# Всегда переносить фигурные скобки на новую строку
+csharp_new_line_before_open_brace = all
+
+# Альтернативно, явно:
+csharp_new_line_before_open_brace_types = true
+csharp_new_line_before_open_brace_methods = true
+csharp_new_line_before_open_brace_properties = true
+csharp_new_line_before_open_brace_control_blocks = true
+csharp_new_line_before_open_brace_accessors = true
+csharp_new_line_before_open_brace_anonymous_methods = true
+csharp_new_line_before_open_brace_lambda_expression = true
+
+# Отступы внутри методов
+csharp_indent_block_contents = true
+
+# Пробелы вокруг операторов
+csharp_space_around_binary_operators = before_and_after
+
+# Пробелы после ключевых слов if, for, while
+csharp_space_after_keywords_in_control_flow_statements = true
+
+# Пробелы между именем метода и скобками — запрещены
+csharp_space_between_method_declaration_name_and_open_parenthesis = false
+csharp_space_between_method_call_name_and_open_parenthesis = false
+
+# Пробелы внутри скобок параметров — запрещены
+csharp_space_between_method_call_parameter_list_parentheses = false
+csharp_space_between_method_declaration_parameter_list_parentheses = false
+
+##################################
+# === СТИЛЬ НАИМЕНОВАНИЙ ===     #
+##################################
+
+# Использовать стиль PascalCase для типов и методов
+dotnet_naming_rule.types_and_methods_should_be_pascal_case.severity = suggestion
+dotnet_naming_rule.types_and_methods_should_be_pascal_case.symbols = types_and_methods
+dotnet_naming_rule.types_and_methods_should_be_pascal_case.style = pascal_case_style
+
+dotnet_naming_symbols.types_and_methods.applicable_kinds = class, struct, interface, enum, method, property
+dotnet_naming_symbols.types_and_methods.applicable_accessibilities = *
+dotnet_naming_symbols.types_and_methods.required_modifiers = *
+
+dotnet_naming_style.pascal_case_style.capitalization = pascal_case
+
+# Использовать стиль camelCase для переменных и полей
+dotnet_naming_rule.variables_should_be_camel_case.severity = suggestion
+dotnet_naming_rule.variables_should_be_camel_case.symbols = variables
+dotnet_naming_rule.variables_should_be_camel_case.style = camel_case_style
+
+dotnet_naming_symbols.variables.applicable_kinds = field, local, parameter
+dotnet_naming_symbols.variables.applicable_accessibilities = *
+dotnet_naming_symbols.variables.required_modifiers = *
+
+dotnet_naming_style.camel_case_style.capitalization = camel_case
+
+# Приватные поля с подчеркиванием: _camelCase
+dotnet_naming_rule.private_fields_should_be_underscore_camel_case.severity = suggestion
+dotnet_naming_rule.private_fields_should_be_underscore_camel_case.symbols = private_fields
+dotnet_naming_rule.private_fields_should_be_underscore_camel_case.style = underscore_camel_case_style
+
+dotnet_naming_symbols.private_fields.applicable_kinds = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+dotnet_naming_symbols.private_fields.required_modifiers = *
+
+dotnet_naming_style.underscore_camel_case_style.capitalization = camel_case
+dotnet_naming_style.underscore_camel_case_style.required_prefix = _

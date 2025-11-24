@@ -1,0 +1,26 @@
+root = true
+
+[*.cs]
+
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# 🧼 Удаление двойных пустых строк и форматирование
+dotnet_diagnostic.SA1507.severity = warning     # Пустая строка перед }
+dotnet_diagnostic.SA1508.severity = warning     # Пустая строка внутри {}
+dotnet_diagnostic.SA1505.severity = warning     # Несколько пустых строк подряд
+dotnet_diagnostic.SA1516.severity = warning     # Пустая строка между методами
+
+# 💬 Комментарии
+dotnet_diagnostic.SA1005.severity = suggestion  # //Комментарий → // Комментарий
+
+# ✅ Требовать пустую строку перед управляющими блоками (if, for, while)
+dotnet_diagnostic.RCS1213.severity = warning
+
+# ✅ Требовать пустую строку ПОСЛЕ блока
+dotnet_diagnostic.RCS1229.severity = warning
+
+# ❌ Не требовать XML-комментарии
+dotnet_diagnostic.SA1600.severity = none

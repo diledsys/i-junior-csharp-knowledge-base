@@ -1,0 +1,75 @@
+            // Пользователь вводит числа, и программа их запоминает.
+            // Как только пользователь введёт команду sum, программа выведет сумму всех веденных чисел.
+            // Выход из программы должен происходить только в том случае, если пользователь введет команду exit.
+            // Если введено не sum и не exit, значит это число и его надо добавить в массив.
+            // В начале цикла надо выводить в консоль все числа, которые содержатся в массиве, а значит их ввел пользователь ранее.
+            // Программа должна работать на основе расширения массива.
+            // Внимание, нельзя использовать List<T> и Array.Resize
+
+using System;
+using System.Collections.Generic;
+
+namespace DynamicArray
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            const string exitCommand = "exit";
+            const string sumCommand = "sum";
+
+            int[] numbers = new int[0];
+            string input;
+            int sum = 0;
+            string prompt = "Введите числа для добавления в массив. Введите 'sum' для вывода суммы, 'exit' для выхода.";
+
+            Console.WriteLine(prompt);
+
+
+            while (true)
+            {
+                Console.WriteLine("\nТекущий массив: " + string.Join(", ", numbers));
+                Console.Write("Введите число, 'sum' или 'exit': ");
+                input = Console.ReadLine();
+
+                if (input.ToLower() == exitCommand)
+                {
+                    break;
+                }
+                else if (input.ToLower() == sumCommand)
+                {
+                    sum = 0;
+
+                    foreach (int number in numbers)
+                    {
+                        sum += number;
+                    }
+
+                    Console.WriteLine("Сумма всех введенных чисел: " + sum);
+                }
+                else
+                {
+                    if (int.TryParse(input, out int newNumber))
+                    {
+                        int[] newArray = new int[numbers.Length + 1];
+
+                        for (int i = 0; i < numbers.Length; i++)
+                        {
+                            newArray[i] = numbers[i];
+                        }
+
+                        newArray[newArray.Length - 1] = newNumber;
+                        numbers = newArray;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Некорректный ввод. Пожалуйста, введите число, 'sum' или 'exit'.");
+                    }
+                }
+
+                Console.WriteLine(
+                    "Введите число, 'sum' для суммы всех введенных чисел, 'exit' для выхода из программы.");
+            }
+        }
+    }
+}

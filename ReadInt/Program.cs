@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GetIntegerInput
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int result = GetValidInteger();
+            Console.WriteLine($"Вы ввели число: {result}");
+        }
+
+        static int GetValidInteger()
+        {
+            int number = 0;
+            bool isParsed = false;
+
+            while (isParsed == false)
+            {
+                Console.Write("Введите целое число: ");
+                string input = Console.ReadLine();
+                isParsed = int.TryParse(input, out number);
+
+                if (isParsed == false)
+                {
+                    Console.WriteLine("Ошибка: это не целое число. Попробуйте снова.");
+                }
+            }
+
+            return number;
+        }
+    }
+}

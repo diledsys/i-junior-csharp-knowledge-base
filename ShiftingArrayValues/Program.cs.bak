@@ -1,0 +1,46 @@
+﻿            // Дан массив чисел. Нужно его сдвинуть циклически на указанное пользователем значение позиций влево, не используя других массивов. Пример для сдвига один раз: {1, 2, 3, 4} => {2, 3, 4, 1}
+using System;
+
+namespace ShiftingArrayValues
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] array = { 1, 2, 3, 4, 5 };
+            int positionsToShift; // Количество позиций для сдвига
+            int n = array.Length;
+            Console.WriteLine("Исходный массив:");
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write(array[i] + " ");
+            }
+            Console.Write("\nукажите сдвиг на указанное значение позиций влево: ");
+            positionsToShift = int.Parse(Console.ReadLine());
+
+            positionsToShift = positionsToShift % n; // В случае, если количество позиций больше длины массива
+
+            for (int i = 0; i < positionsToShift; i++)
+            {
+                int firstElement = array[0];
+
+                for (int j = 0; j < n - 1; j++)
+                {
+                    array[j] = array[j + 1];
+                }
+
+                array[n - 1] = firstElement;
+            }
+
+            Console.WriteLine("\nМассив после сдвига:");
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write(array[i] + " ");
+            }
+
+            Console.WriteLine();
+        }
+    }
+}
